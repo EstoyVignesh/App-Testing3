@@ -1,85 +1,33 @@
-# App-Testing3
 
-public void trigger()
-	{
-		waitForElement(trigg,30);
-		clickElement(trigg);
-	}
 
-	public void searchApp(String text)
-	{
-		waitForElement(app,30);
-		typeText(app,text);
-	}
+
+@FindBy(xpath="//span[text()='Airtable']")
+	public WebElement selapp1;
 	
-	public void selectApp()
-	{
-		waitForClickElement(selapp1,30);
-		clickElement(selapp1);
-	}
+	@FindBy(xpath="//div[@data-value='at3-newframeworkairtaflkk02']")
+	public WebElement selconn;
 	
-	public void selectConnection()
-	{
-		waitForClickElement(selconn,30);
-		clickElement(selconn);
-	}
+	@FindBy(xpath="//span[text()='New Record']")
+	public WebElement seltrigg;
 	
-	public void selectTrigger()
-	{
-		waitForClickElement(seltrigg,30);
-		clickElement(seltrigg);
-	}
+	@FindBy(xpath="//button[text()='Continue']")
+	public WebElement goto1;
 	
-	public void clickContinuebutton1()
-	{
-		waitForClickElement(goto1,10);
-		clickElement(goto1);
-		waitForClickElement(base,30);
-	}
+	@FindBy(xpath="//span[text()='Edit']")
+	public WebElement edit;
 	
-	public void clickEdit()
-	{
-		waitForClickElement(edit,10);
-		clickElement(edit);
-		
-	}
+	@FindBy(xpath="(//button[@type='button'])[3]")
+	public WebElement base;
 	
-	public void clickBase1()
-	{
-		
-		clickElement(base);
-		
-		}
+	@FindBy(xpath="//span[text()='Stripe']")
+	public WebElement clbase;
 	
-	public void clickBase2()
-	{
-			
-		waitForClickElement(clbase,30);
-		clickElement(clbase);
-	}
+	@FindBy(xpath="(//button[@type='button'])[4]")
+	public WebElement table;
 	
-	public void clickTable1()
-	{
-		waitForClickElement(table,30);
-		clickElement(table);
-		
-		
-	}
+	@FindBy(xpath="//span[text()='Table 2']")
+	public WebElement cltable;
 	
-	public void clickTable2()
-	{
-				
-		waitForClickElement(cltable,30);
-		clickElement(cltable);
-	}
-	
-	
-	
-	
-	
-	public void clickContinuebutton2()
-	{
-		waitForClickElement(goto2,30);
-		clickElement(goto2);
-	}
+	@FindBy(xpath="//button[text()='Continue']")
+	public WebElement goto2;
 	
