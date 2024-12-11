@@ -28,18 +28,33 @@ public class Airtable1 extends SeWrapper {
 	@FindBy(xpath="//input[@placeholder='Search apps']")
 	public WebElement app;
 
-	@FindBy(xpath="//span[text()='New Record']")
+	@FindBy(xpath="//span[text()='Airtable']")
 	public WebElement selapp1;
 	
 	@FindBy(xpath="//div[@data-value='at3-newframeworkairtaflkk02']")
 	public WebElement selconn;
-	
+
 	@FindBy(xpath="//span[text()='New Record']")
 	public WebElement seltrigg;
-	
+
 	@FindBy(xpath="//button[text()='Continue']")
 	public WebElement goto1;
-	
+
+	@FindBy(xpath="//span[text()='Edit']")
+	public WebElement edit;
+
+	@FindBy(xpath="//button[text()='Choose Base']")
+	public WebElement base;
+
+	@FindBy(xpath="//span[text()='Stripe']")
+	public WebElement clbase;
+
+	@FindBy(xpath="(//button[@type='button'])[4]")
+	public WebElement table;
+
+	@FindBy(xpath="//span[text()='Table 2']")
+	public WebElement cltable;
+
 	@FindBy(xpath="//button[text()='Continue']")
 	public WebElement goto2;
 	
@@ -49,34 +64,51 @@ public class Airtable1 extends SeWrapper {
 	@FindBy(xpath="//input[@placeholder='Search apps']")
 	public WebElement search;
 	
-	@FindBy(xpath="//div[@class='flex gap-4 items-center']")
-	public WebElement selectapp;
+	@FindBy(xpath="(//span[text()='Airtable'])[2]")
+	public WebElement selapp2;
 	
 	@FindBy(xpath="//div[@data-value='at3-newframeworkairtaflkk02']")
-	public WebElement selectcon;
-	
+	public WebElement selconn1;
+
 	@FindBy(xpath="//span[text()='Create Record']")
-	public WebElement action;
-	
-	
+	public WebElement selact;
+
 	@FindBy(xpath="//button[text()='Continue']")
-	public WebElement nstep1;
+	public WebElement goto3;
 	
-	@FindBy(id="email")
-	public WebElement email;
+	@FindBy(xpath="//button[text()='Choose Base']")
+	public WebElement base1;
+
+	@FindBy(xpath="//span[text()='Stripe']")
+	public WebElement clbase1;
+
+	@FindBy(xpath="(//button[@type='button'])[4]")
+	public WebElement table1;
+
+	@FindBy(xpath="//span[text()='Table 2']")
+	public WebElement cltable1;
+	
+	@FindBy(xpath="//span[text()='Enter Name or choose a field']")
+	public WebElement sf1;
+	
+	@FindBy(xpath="//input[@placeholder='Search Field']")
+	public WebElement inf1;
+	
+	@FindBy(xpath="//span[text()='Fields Name']")
+	public WebElement cf1;
+	
+	@FindBy(xpath="//span[text()='Enter Assignee id or choose a field']")
+	public WebElement sf2;
+	
+	@FindBy(xpath="//input[@placeholder='Search Field']")
+	public WebElement inf2;
+	
+	@FindBy(xpath="//span[text()='Fields Assignee Id']")
+	public WebElement cf2;
 	
 
-	@FindBy(xpath="//span[text()='Id']")
-	public WebElement map1;
-	
-	@FindBy(xpath="//span[text()='Custom Field Cf Email']")
-	public WebElement scroll1;
-	
 	@FindBy(xpath="//button[text()='Continue']")
-	public WebElement acont;
-	
-	@FindBy(xpath="//button[text()='Continue']")
-	public WebElement aconti;
+	public WebElement goto4;
 	
 	@FindBy(xpath="//button[text()='Save']")
 	public WebElement save;
@@ -139,95 +171,171 @@ public class Airtable1 extends SeWrapper {
 		waitForElement(app,30);
 		typeText(app,text);
 	}
-	
+
 	public void selectApp()
 	{
 		waitForClickElement(selapp1,30);
 		clickElement(selapp1);
 	}
-	
+
 	public void selectConnection()
 	{
 		waitForClickElement(selconn,30);
 		clickElement(selconn);
 	}
-	
+
 	public void selectTrigger()
 	{
 		waitForClickElement(seltrigg,30);
 		clickElement(seltrigg);
 	}
-	
-	public void clickContinuebutton1()
+
+	public void clickContinuebutton1() throws InterruptedException
 	{
-		waitForClickElement(goto1,30);
+		waitForClickElement(goto1,10);
 		clickElement(goto1);
+		waitForClickElement(base,30);
+		Thread.sleep(3000);
+	}
+
+
+
+	public void clickBase1()
+	{
+
+		actionsMoveToElement(base);
+		waitForClickElement(base,30);
+		clickElement(base);
+		
+		waitForClickElement(clbase,30);
+		clickElement(clbase);
+		
+		}
+
+	
+
+	public void clickTable1()
+	{
+
+		actionsMoveToElement(table);
+		waitForClickElement(table,30);
+		clickElement(table);
+		
+		waitForClickElement(cltable,30);
+		clickElement(cltable);
+		
+		
 	}
 	
-	public void clickContinuebutton2()
+	
+	
+//	public void assigneeField(String text)
+//	{
+//		javascriptExecutorScrollWebElement(sf2);		
+//		actionsDoubleClick(sf2);
+//		
+//		typeText(inf2,text);
+//		clickElement(cf2);		
+//		
+//		
+//	}
+
+	public void clickContinuebutton2() throws InterruptedException
 	{
 		waitForClickElement(goto2,30);
 		clickElement(goto2);
+		Thread.sleep(2000);
 	}
 	
-	public void searchApp1(String text)
+	
+	//Action Configuration
+	
+	public void searchApp1(String text) throws InterruptedException
 	{
+		Thread.sleep(2000);
 		waitForElement(search,30);
-		typeText(search,text);
+		typeText(search, text);
+		
 	}
 	
-	public void selectApp1()
+	public void selectApp1() throws InterruptedException
 	{
-		waitForElement(selectapp,30);
-		clickElement(selectapp);
+		Thread.sleep(2000);
+		actionsMoveToElement(selapp2);
+		clickElement(selapp2);
 	}
 	
 	public void selectConnection1()
 	{
-		waitForElement(selectcon,30);
-		clickElement(selectcon);
+		waitForElement(selconn1,30);
+		clickElement(selconn1);
 	}
 	
 	public void selectAction()
 	{
-		actionsMoveToElement(action);
-//		waitForClickElement(action,10);
-		actionsDoubleClick(action);
+		actionsMoveToElement(selact);
+		waitForClickElement(selact,10);
+		actionsDoubleClick(selact);
 	}
 	
-	public void clickcontinuetoNext()
-	{
-		waitForElement(nstep1,30);
-		clickElement(nstep1);
-	}
-	
-	
-	public void emailMap()
-	{
-		waitForElement(email,10);
-		clickElement(email);
-	}
-	
-	public void clickDynamicfield()
-	{
-		waitForElement(map1,10);
-		actionsMoveToElement(map1);
 		
-		javascriptExecutorScrollWebElement(scroll1);
-		clickElement(scroll1);
+	public void clickContinuebutton3() throws InterruptedException
+	{
+		waitForClickElement(goto3,10);
+		clickElement(goto3);
+		waitForClickElement(base1,30);
+		Thread.sleep(3000);
+	}
+
+
+
+	public void clickBase2()
+	{
+
+		actionsMoveToElement(base1);
+		waitForClickElement(base1,30);
+		clickElement(base1);
+		
+		waitForClickElement(clbase1,30);
+		clickElement(clbase1);
+		
+		}
+
+	
+
+	public void clickTable2()
+	{
+
+		actionsMoveToElement(table1);
+		waitForClickElement(table1,30);
+		clickElement(table1);
+		
+		waitForClickElement(cltable1,30);
+		clickElement(cltable1);
+		
+		
+	}
+
+	public void nameField(String text)
+	{
+		
+		actionsDoubleClick(sf1);
+		
+		typeText(inf1,text);
+		clickElement(cf1);	
+		
+		
+		
 	}
 	
-	public void clickContinuebutton3()
+	
+	public void clickContinuebutton4() throws InterruptedException
 	{
-		waitForClickElement(acont,30);
-		clickElement(acont);
+		waitForClickElement(goto4,30);
+		clickElement(goto4);
+		Thread.sleep(2000);
 	}
 	
-	public void clickContinuebutton4()
-	{
-		waitForClickElement(aconti,30);
-		clickElement(aconti);
-	}
 	
 	public void clickSaveButton()
 	{
@@ -260,7 +368,15 @@ public class Airtable1 extends SeWrapper {
 		clickElement(active);
 	}
 	
+	public void closeAllBrowser() throws InterruptedException
+	{
+		Thread.sleep(2000);
+		closeAllBrowsers();
+		
+	}
 	
+	
+
 
 
 }
